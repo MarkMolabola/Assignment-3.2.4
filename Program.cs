@@ -13,22 +13,23 @@
             nums[2] = Convert.ToDouble(Console.ReadLine());
             Console.WriteLine("Enter the fourth number: ");
             nums[3] = Convert.ToDouble(Console.ReadLine());
-            
-            Console.WriteLine("The sum of the numbers is: " + Sum(nums));
-            Console.WriteLine("The average of the numbers is: " + Average(nums));
+            double[] results = SumAndAverage(nums);
+            Console.WriteLine("The sum of the numbers is: " + results[0]);
+            Console.WriteLine("The average of the numbers is: " + results[1]);
         }
-        static double Sum(double[] nums)
+        static double[] SumAndAverage(double[] nums)
         {
-            int sum = 0;
-            foreach (int num in nums)
+            double[] ints = new double[2];
+            double sum = 0;
+            foreach (double num in nums)
             {
                 sum += num;
             }
-            return sum;
-        }
-        static double Average(double[] nums)
-        {
-            return (double)Sum(nums) / nums.Length;
+            double Average = sum / nums.Length;
+            ints[0] = sum;
+            ints[1] = Average;
+            return ints;
         }
     }
+
 }
